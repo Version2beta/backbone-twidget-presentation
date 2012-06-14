@@ -21,3 +21,13 @@ bbtwitter.Tweets = Backbone.Collection.extend({
   query: 'web414bb'
 });
 
+// Views
+
+bbtwitter.Twidget = Backbone.View.extend({
+  initialize: function () {
+    this.tweets = new bbtwitter.Tweets();
+    this.isLoading = false;
+  },
+
+});
+
