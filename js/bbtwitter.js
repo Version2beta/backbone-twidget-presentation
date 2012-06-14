@@ -63,3 +63,8 @@ bbtwitter.Twidget = Backbone.View.extend({
     '</ul>')
 });
 
+// And rock-n-roll
+
+twidget = new bbtwitter.Twidget();
+twidget.render();
+
