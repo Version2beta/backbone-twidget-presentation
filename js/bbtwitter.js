@@ -44,6 +44,13 @@ bbtwitter.Twidget = Backbone.View.extend({
     this.tweets.page = this.tweets.page + 1;
     this.render();
   },
+  events: {
+    scroll: function() {
+      if (!this.isLoading && this.el.scrollTop + this.el.clientHeight + 100 > this.el.scrollHeight) {
+        this.next();
+      }
+    }
+  },
   templatizer: _.template('<ul>' +
     '<% _.each(models, function(m){ %>' +
       '<li>' +
