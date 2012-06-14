@@ -40,6 +40,10 @@ bbtwitter.Twidget = Backbone.View.extend({
       }
     });
   },
+  next: function() {
+    this.tweets.page = this.tweets.page + 1;
+    this.render();
+  },
   templatizer: _.template('<ul>' +
     '<% _.each(models, function(m){ %>' +
       '<li>' +
