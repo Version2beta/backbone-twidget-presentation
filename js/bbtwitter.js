@@ -24,6 +24,7 @@ bbtwitter.Tweets = Backbone.Collection.extend({
 // Views
 
 bbtwitter.Twidget = Backbone.View.extend({
+  el: '.twidget',
   initialize: function () {
     this.tweets = new bbtwitter.Tweets();
     this.isLoading = false;
@@ -39,5 +40,15 @@ bbtwitter.Twidget = Backbone.View.extend({
       }
     });
   },
+  templatizer: _.template('<ul>' +
+    '<% _.each(models, function(m){ %>' +
+      '<li>' +
+        '<img src="<%= m.get("profile_image_url_https") %>" alt="Twitter avatar for <%= m.get("from_user") %>" />' +
+        '<span class="from"><%= m.get("from_user_name") %> (@<%= m.get("from_user") %>)</span> ' +
+        '<span class="when"><%= m.get("created_at") %></span>' +
+        '<span class="tweet"><%= m.get("text") %></span> ' +
+      '</li>' +
+    '<% }); %>' +
+    '</ul>')
 });
 
