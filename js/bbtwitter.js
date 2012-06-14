@@ -7,4 +7,9 @@
 bbtwitter.Tweet = Backbone.Model.extend({
 });
 
+// Collections
 
+bbtwitter.Tweets = Backbone.Collection.extend({
+    model: bbtwitter.Tweet,
+
+});
