@@ -10,7 +10,14 @@ bbtwitter.Tweet = Backbone.Model.extend({
 // Collections
 
 bbtwitter.Tweets = Backbone.Collection.extend({
-    model: bbtwitter.Tweet,
-    page: 1,
-    query: 'web414bb'
+	model: bbtwitter.Tweet,
+	url: function () {
+    return 'http://search.twitter.com/search.json?q=' + this.query + '&page=' + this.page + '&callback=?'
+  },
+  parse: function(resp, xhr) {
+    return resp.results;
+  },
+  page: 1,
+  query: 'web414bb'
 });
+
