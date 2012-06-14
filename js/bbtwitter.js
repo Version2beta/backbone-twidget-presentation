@@ -28,6 +28,16 @@ bbtwitter.Twidget = Backbone.View.extend({
     this.tweets = new bbtwitter.Tweets();
     this.isLoading = false;
   },
-
+  render: function () {
+    var that = this;
+    this.isLoading = true;
+    this.tweets.fetch({
+      success: function (tweets) {
+        console.log(tweets);
+        $(that.el).append(that.templatizer({models: tweets.models}));
+        that.isLoading = false;
+      }
+    });
+  },
 });
 
