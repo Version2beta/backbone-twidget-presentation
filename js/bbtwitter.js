@@ -11,5 +11,6 @@ bbtwitter.Tweet = Backbone.Model.extend({
 
 bbtwitter.Tweets = Backbone.Collection.extend({
     model: bbtwitter.Tweet,
-
+    page: 1,
+    query: 'web414bb'
 });
