@@ -2,6 +2,10 @@
 // written by Rob Martin @version2beta and Arlen Walker @arlen
 // for demonstration of Backbone.js at the June 2012 @web414 meetup
 
+// Set up a namespace
+
+var bbtwitter = bbtwitter || {};
+
 // Models
 
 bbtwitter.Tweet = Backbone.Model.extend({
